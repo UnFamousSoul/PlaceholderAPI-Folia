@@ -39,7 +39,6 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 import me.clip.placeholderapi.PlaceholderAPIPlugin;
-import me.clip.placeholderapi.events.ExpansionRegisterEvent;
 import me.clip.placeholderapi.events.ExpansionUnregisterEvent;
 import me.clip.placeholderapi.events.ExpansionsLoadedEvent;
 import me.clip.placeholderapi.expansion.Cacheable;
@@ -372,7 +371,7 @@ public final class LocalExpansionManager implements Listener {
           .filter(CloudExpansion::shouldUpdate)
           .count();
 
-      StringBuilder message = new StringBuilder(registered.size() == 0 ? "&6" : "&a")
+      StringBuilder message = new StringBuilder(registered.isEmpty() ? "&6" : "&a")
           .append(registered.size())
           .append(' ')
           .append("placeholder hook(s) registered!");

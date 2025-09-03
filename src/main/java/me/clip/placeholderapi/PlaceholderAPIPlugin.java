@@ -21,7 +21,6 @@
 package me.clip.placeholderapi;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import me.clip.placeholderapi.commands.PlaceholderCommandRouter;
@@ -47,7 +46,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Yes I have a shit load of work to do...
+ * Yes I have a shitload of work to do...
  *
  * @author Ryan McCarthy
  */

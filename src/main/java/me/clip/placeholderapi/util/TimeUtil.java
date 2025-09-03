@@ -32,9 +32,6 @@ public class TimeUtil {
 
   public static String getRemaining(final long seconds, final TimeFormat type) {
     switch (type) {
-      default:
-        return String.valueOf(seconds);
-
       case SECONDS:
         return String.valueOf(seconds % 60);
 
@@ -46,6 +43,9 @@ public class TimeUtil {
 
       case DAYS:
         return String.valueOf(seconds / 86400);
+
+      default:
+        return String.valueOf(seconds);
     }
   }
 

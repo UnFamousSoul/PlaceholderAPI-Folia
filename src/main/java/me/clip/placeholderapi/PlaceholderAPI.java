@@ -46,10 +46,10 @@ public final class PlaceholderAPI {
   private static final Replacer REPLACER_PERCENT = new CharsReplacer(Closure.PERCENT);
   private static final Replacer REPLACER_BRACKET = new CharsReplacer(Closure.BRACKET);
 
-  private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("[%]([^%]+)[%]");
+  private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("%([^%]+)%");
   private static final Pattern BRACKET_PLACEHOLDER_PATTERN = Pattern.compile("[{]([^{}]+)[}]");
   private static final Pattern RELATIONAL_PLACEHOLDER_PATTERN = Pattern
-      .compile("[%](rel_)([^%]+)[%]");
+      .compile("%(rel_)([^%]+)%");
 
 
   private PlaceholderAPI() {
@@ -63,7 +63,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text Text to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static String setPlaceholders(final OfflinePlayer player,
@@ -78,7 +78,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text List of Strings to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static List<String> setPlaceholders(final OfflinePlayer player,
@@ -92,7 +92,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text Text to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static String setPlaceholders(final Player player, @NotNull String text) {
@@ -105,7 +105,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text List of Strings to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static List<String> setPlaceholders(final Player player, @NotNull List<@NotNull String> text) {
@@ -118,7 +118,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text Text to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static String setBracketPlaceholders(final OfflinePlayer player,
@@ -133,7 +133,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text List of Strings to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static List<@NotNull String> setBracketPlaceholders(final OfflinePlayer player,
@@ -148,7 +148,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text Text to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static String setBracketPlaceholders(Player player, @NotNull String text) {
@@ -161,7 +161,7 @@ public final class PlaceholderAPI {
    *
    * @param player Player to parse the placeholders against
    * @param text List of Strings to set the placeholder values in
-   * @return String containing all translated placeholders
+   * @return List<String> containing all translated placeholders
    */
   @NotNull
   public static List<String> setBracketPlaceholders(Player player, @NotNull List<String> text) {
@@ -184,7 +184,7 @@ public final class PlaceholderAPI {
       final String format = matcher.group(2);
       final int index = format.indexOf("_");
 
-      if (index <= 0 || index >= format.length()) {
+      if (index <= 0) {
         continue;
       }
 
@@ -418,7 +418,7 @@ public final class PlaceholderAPI {
    * @param text The text to parse
    * @param pattern The Pattern to use
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -434,7 +434,7 @@ public final class PlaceholderAPI {
    * @param text The List of text to parse
    * @param pattern The Pattern to use
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -449,7 +449,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The List of text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -464,7 +464,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The List of text to parse
    * @param pattern The Pattern to use
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -478,7 +478,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -492,7 +492,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The List of text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -506,7 +506,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -520,7 +520,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The text to parse
    * @param pattern The Pattern to use
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -534,7 +534,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The List of text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -549,7 +549,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -563,7 +563,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")
@@ -577,7 +577,7 @@ public final class PlaceholderAPI {
    * @param player The offline player to parse the placeholders against
    * @param text The List of text to parse
    * @param colorize If PlaceholderAPI should also parse color codes
-   * @return String with the parsed placeholders
+   * @return List<String> with the parsed placeholders
    */
   @Deprecated
   @ApiStatus.ScheduledForRemoval(inVersion = "2.13.0")

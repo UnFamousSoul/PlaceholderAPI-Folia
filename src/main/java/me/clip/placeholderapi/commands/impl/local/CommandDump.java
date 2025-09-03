@@ -124,7 +124,7 @@ public final class CommandDump extends PlaceholderCommand {
         .append("\n\n");
 
     builder.append("PlaceholderAPI: ")
-        .append(plugin.getDescription().getVersion())
+        .append(plugin.getPluginMeta().getDescription())
         .append("\n\n");
 
     builder.append("Expansions Registered:")
@@ -201,9 +201,9 @@ public final class CommandDump extends PlaceholderCommand {
       builder.append("  ")
           .append(String.format("%-" + size + "s", other.getName()))
           .append(" [Authors: [")
-          .append(String.join(", ", other.getDescription().getAuthors()))
+          .append(String.join(", ", other.getPluginMeta().getAuthors()))
           .append("], Version: ")
-          .append(other.getDescription().getVersion())
+          .append(other.getPluginMeta().getVersion())
           .append("]")
           .append("\n");
     }

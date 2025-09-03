@@ -64,20 +64,16 @@ public final class CommandInfo extends PlaceholderCommand {
         .append('\n');
 
     final String author = expansion.getAuthor();
-    if (author != null) {
       builder.append("&7Author: &r")
-          .append(author)
-          .append('\n');
-    }
+              .append(author)
+              .append('\n');
 
-    final String version = expansion.getVersion();
-    if (version != null) {
+      final String version = expansion.getVersion();
       builder.append("&7Version: &r")
-          .append(version)
-          .append('\n');
-    }
+              .append(version)
+              .append('\n');
 
-    final String requiredPlugin = expansion.getRequiredPlugin();
+      final String requiredPlugin = expansion.getRequiredPlugin();
     if (requiredPlugin != null) {
       builder.append("&7Requires plugin: &r")
           .append(requiredPlugin)
@@ -85,7 +81,7 @@ public final class CommandInfo extends PlaceholderCommand {
     }
 
     final List<String> placeholders = expansion.getPlaceholders();
-    if (placeholders != null && !placeholders.isEmpty()) {
+    if (!placeholders.isEmpty()) {
       builder.append("&8&m-- &7Placeholders &8&m--&r")
           .append('\n');
 

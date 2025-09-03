@@ -23,7 +23,6 @@ package me.clip.placeholderapi.replacer;
 import java.util.Locale;
 import java.util.function.Function;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

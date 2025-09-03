@@ -285,8 +285,7 @@ public final class CommandECloudExpansionList extends PlaceholderCommand {
     if (params.size() < 2) {
       page = 1;
     } else {
-      //noinspection UnstableApiUsage
-      final Integer parsed = Ints.tryParse(params.get(1));
+        final Integer parsed = Ints.tryParse(params.get(1));
       if (parsed == null) {
         Msg.msg(sender,
             "&cPage number must be an integer.");

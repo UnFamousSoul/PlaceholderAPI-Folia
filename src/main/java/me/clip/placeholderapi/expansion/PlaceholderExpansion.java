@@ -398,7 +398,7 @@ public abstract class PlaceholderExpansion extends PlaceholderHook {
    * </ul>
    * 
    * @param o The Object to check
-   * @return true or false depending on the above mentioned checks
+   * @return true or false depending on the above-mentioned checks
    */
   @Override
   public final boolean equals(final Object o) {

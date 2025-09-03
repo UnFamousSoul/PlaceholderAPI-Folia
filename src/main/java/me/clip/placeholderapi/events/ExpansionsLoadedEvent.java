@@ -45,7 +45,7 @@ public class ExpansionsLoadedEvent extends Event {
     }
 
     /**
-     * Returns a unmodifiable list of {@link PlaceholderExpansion PlaceholderExpansions} that
+     * Returns an unmodifiable list of {@link PlaceholderExpansion PlaceholderExpansions} that
      * have been registered by PlaceholderAPI.
      * 
      * <p><b>This list does not include manually registered PlaceholderExpansions.</b>

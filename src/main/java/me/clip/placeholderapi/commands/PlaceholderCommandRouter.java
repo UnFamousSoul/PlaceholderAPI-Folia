@@ -86,7 +86,7 @@ public final class PlaceholderCommandRouter implements CommandExecutor, TabCompl
 
   @Override
   public boolean onCommand(@NotNull final CommandSender sender, @NotNull final Command command,
-      @NotNull final String alias, @NotNull final String[] args) {
+      @NotNull final String alias, @NotNull final String @NotNull [] args) {
     if (args.length == 0) {
       final PlaceholderCommand fallback = commands.get("version");
       if (fallback != null) {
@@ -118,7 +118,7 @@ public final class PlaceholderCommandRouter implements CommandExecutor, TabCompl
 
   @Override
   public List<String> onTabComplete(@NotNull final CommandSender sender,
-      @NotNull final Command command, @NotNull final String alias, @NotNull final String[] args) {
+      @NotNull final Command command, @NotNull final String alias, @NotNull final String @NotNull [] args) {
     final List<String> suggestions = new ArrayList<>();
 
     if (args.length > 1) {

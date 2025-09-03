@@ -60,7 +60,7 @@ import org.jetbrains.annotations.Unmodifiable;
 public final class CloudExpansionManager {
 
   @NotNull
-  private static final String API_URL = "http://api.extendedclip.com/v2/";
+  private static final String API_URL = "https://api.extendedclip.com/v2/";
 
   @NotNull
   private static final Gson GSON = new Gson();
@@ -178,8 +178,7 @@ public final class CloudExpansionManager {
           // a defence tactic! use ConcurrentHashMap instead of normal HashMap
           Map<String, CloudExpansion> values = new ConcurrentHashMap<>();
           try {
-            //noinspection UnstableApiUsage
-            String json = Resources.toString(new URL(API_URL), StandardCharsets.UTF_8);
+              String json = Resources.toString(new URL(API_URL), StandardCharsets.UTF_8);
             values.putAll(GSON.fromJson(json, TYPE));
 
             List<String> toRemove = new ArrayList<>();

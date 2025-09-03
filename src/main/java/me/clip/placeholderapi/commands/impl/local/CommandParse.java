@@ -30,6 +30,7 @@ import me.clip.placeholderapi.PlaceholderAPIPlugin;
 import me.clip.placeholderapi.commands.PlaceholderCommand;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.clip.placeholderapi.util.Msg;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -39,6 +40,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
 public final class CommandParse extends PlaceholderCommand {
+  private final MiniMessage mm = MiniMessage.builder().build();
 
   public CommandParse() {
     super("parse", "bcparse", "parserel", "cmdparse");
@@ -54,13 +56,13 @@ public final class CommandParse extends PlaceholderCommand {
         evaluateParseRelation(sender, params);
         break;
       case "parse":
-        evaluateParseSingular(sender, params, false, false);
+        evaluateParseSingular(plugin, sender, params, false, false);
         break;
       case "bcparse":
-        evaluateParseSingular(sender, params, true, false);
+        evaluateParseSingular(plugin, sender, params, true, false);
         break;
       case "cmdparse":
-        evaluateParseSingular(sender, params, false, true);
+        evaluateParseSingular(plugin, sender, params, false, true);
         break;
     }
   }
@@ -82,7 +84,7 @@ public final class CommandParse extends PlaceholderCommand {
   }
 
 
-  private void evaluateParseSingular(@NotNull final CommandSender sender,
+  private void evaluateParseSingular(@NotNull final PlaceholderAPIPlugin plugin, @NotNull final CommandSender sender,
       @NotNull @Unmodifiable final List<String> params, final boolean broadcast,
       final boolean command) {
     if (params.size() < 2) {
@@ -118,12 +120,12 @@ public final class CommandParse extends PlaceholderCommand {
         .setPlaceholders(player, String.join(" ", params.subList(1, params.size())));
 
     if (command) {
-      Bukkit.dispatchCommand(sender, message);
+      plugin.getServer().dispatchCommand(sender, message);
       return;
     }
 
     if (broadcast) {
-      Bukkit.broadcastMessage(message);
+      plugin.getServer().broadcast(mm.deserialize(message));
     } else {
       sender.sendMessage(message);
     }
@@ -195,7 +197,7 @@ public final class CommandParse extends PlaceholderCommand {
       }
       
       final Stream<String> names = Bukkit.getOnlinePlayers().stream().map(Player::getName);
-      suggestByParameter(names, suggestions, params.isEmpty() ? null : params.get(0));
+      suggestByParameter(names, suggestions, params.get(0));
 
       return;
     }

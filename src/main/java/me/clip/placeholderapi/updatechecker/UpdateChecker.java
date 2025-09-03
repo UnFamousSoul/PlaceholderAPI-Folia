@@ -46,7 +46,7 @@ public class UpdateChecker implements Listener {
   public UpdateChecker(PlaceholderAPIPlugin plugin) {
     this.plugin = plugin;
     scheduler = plugin.getScheduler();
-    pluginVersion = plugin.getDescription().getVersion();
+    pluginVersion = plugin.getPluginMeta().getVersion();
   }
 
   public boolean hasUpdateAvailable() {

@@ -45,7 +45,7 @@ public final class CommandExpansionRegister extends PlaceholderCommand {
   public void evaluate(@NotNull final PlaceholderAPIPlugin plugin,
       @NotNull final CommandSender sender, @NotNull final String alias,
       @NotNull @Unmodifiable final List<String> params) {
-    if (params.size() < 1) {
+    if (params.isEmpty()) {
       Msg.msg(sender,
           "&cYou must specify the name of an expansion file.");
       return;

@@ -27,7 +27,7 @@ public final class MethodSignature {
     private final String name;
     private final Class<?>[] params;
 
-    protected MethodSignature(String name, Class<?>[] params) {
+    MethodSignature(String name, Class<?>[] params) {
         this.name = name;
         this.params = params;
     }
