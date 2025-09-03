@@ -74,18 +74,14 @@ public interface Values {
         return null;
       }
 
-      switch (parts[0]) {
-        case "name":
-          return PLAYER_NAME;
-        case "x":
-          return PLAYER_X;
-        case "y":
-          return PLAYER_Y;
-        case "z":
-          return PLAYER_Z;
-      }
+        return switch (parts[0]) {
+            case "name" -> PLAYER_NAME;
+            case "x" -> PLAYER_X;
+            case "y" -> PLAYER_Y;
+            case "z" -> PLAYER_Z;
+            default -> null;
+        };
 
-      return null;
     }
 
   }

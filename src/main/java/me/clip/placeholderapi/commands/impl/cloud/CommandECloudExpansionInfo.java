@@ -119,7 +119,7 @@ public final class CommandECloudExpansionInfo extends PlaceholderCommand {
 
     final Optional<CloudExpansion> expansion = plugin.getCloudExpansionManager()
         .findCloudExpansionByName(params.get(0));
-    if (!expansion.isPresent()) {
+    if (expansion.isEmpty()) {
       return;
     }
 

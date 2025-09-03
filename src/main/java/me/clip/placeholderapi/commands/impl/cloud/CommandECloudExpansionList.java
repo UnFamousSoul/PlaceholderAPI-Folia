@@ -87,14 +87,11 @@ public final class CommandECloudExpansionList extends PlaceholderCommand {
   @NotNull
   private static Collection<CloudExpansion> getExpansions(@NotNull final String target,
       @NotNull final PlaceholderAPIPlugin plugin) {
-    switch (target.toLowerCase(Locale.ROOT)) {
-      case "all":
-        return plugin.getCloudExpansionManager().getCloudExpansions().values();
-      case "installed":
-        return plugin.getCloudExpansionManager().getCloudExpansionsInstalled().values();
-      default:
-        return plugin.getCloudExpansionManager().getCloudExpansionsByAuthor(target).values();
-    }
+      return switch (target.toLowerCase(Locale.ROOT)) {
+          case "all" -> plugin.getCloudExpansionManager().getCloudExpansions().values();
+          case "installed" -> plugin.getCloudExpansionManager().getCloudExpansionsInstalled().values();
+          default -> plugin.getCloudExpansionManager().getCloudExpansionsByAuthor(target).values();
+      };
   }
 
   @NotNull

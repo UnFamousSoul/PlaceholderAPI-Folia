@@ -261,9 +261,8 @@ public final class LocalExpansionManager implements Listener {
       }
     }
 
-    if (expansion instanceof VersionSpecific) {
-      VersionSpecific nms = (VersionSpecific) expansion;
-      if (!nms.isCompatibleWith(PlaceholderAPIPlugin.getServerVersion())) {
+    if (expansion instanceof VersionSpecific nms) {
+        if (!nms.isCompatibleWith(PlaceholderAPIPlugin.getServerVersion())) {
         Msg.warn("Your server version is incompatible with expansion %s %s",
             expansion.getIdentifier(), expansion.getVersion());
         return false;

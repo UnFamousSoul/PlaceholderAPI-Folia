@@ -50,7 +50,6 @@ import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 import java.util.logging.Level;
-import java.util.stream.Collectors;
 
 public final class CommandDump extends PlaceholderCommand {
 
@@ -137,7 +136,7 @@ public final class CommandDump extends PlaceholderCommand {
             Comparator.comparing(PlaceholderExpansion::getIdentifier)
                       .thenComparing(PlaceholderExpansion::getAuthor)
         )
-        .collect(Collectors.toList());
+        .toList();
 
     int size = expansions.stream().map(e -> e.getIdentifier().length())
         .max(Integer::compareTo)
@@ -191,7 +190,7 @@ public final class CommandDump extends PlaceholderCommand {
 
     List<Plugin> plugins = Arrays.stream(plugin.getServer().getPluginManager().getPlugins())
         .sorted(Comparator.comparing(Plugin::getName))
-        .collect(Collectors.toList());
+        .toList();
     
     size = plugins.stream().map(pl -> pl.getName().length())
         .max(Integer::compareTo)

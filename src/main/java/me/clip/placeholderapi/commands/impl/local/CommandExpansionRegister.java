@@ -77,7 +77,7 @@ public final class CommandExpansionRegister extends PlaceholderCommand {
       }
 
       final Optional<PlaceholderExpansion> expansion = manager.register(clazz);
-      if (!expansion.isPresent()) {
+      if (expansion.isEmpty()) {
         Msg.msg(sender,
             "&cFailed to register expansion from &f" + params.get(0));
         return;

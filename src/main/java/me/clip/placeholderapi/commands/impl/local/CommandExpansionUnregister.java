@@ -49,7 +49,7 @@ public final class CommandExpansionUnregister extends PlaceholderCommand {
 
     final Optional<PlaceholderExpansion> expansion = plugin.getLocalExpansionManager()
         .findExpansionByName(params.get(0));
-    if (!expansion.isPresent()) {
+    if (expansion.isEmpty()) {
       Msg.msg(sender,
           "&cThere is no expansion loaded with the identifier: &f" + params.get(0));
       return;

@@ -31,22 +31,13 @@ public class TimeUtil {
   }
 
   public static String getRemaining(final long seconds, final TimeFormat type) {
-    switch (type) {
-      case SECONDS:
-        return String.valueOf(seconds % 60);
-
-      case MINUTES:
-        return String.valueOf((seconds / 60) % 60);
-
-      case HOURS:
-        return String.valueOf((seconds / 3600) % 24);
-
-      case DAYS:
-        return String.valueOf(seconds / 86400);
-
-      default:
-        return String.valueOf(seconds);
-    }
+      return switch (type) {
+          case SECONDS -> String.valueOf(seconds % 60);
+          case MINUTES -> String.valueOf((seconds / 60) % 60);
+          case HOURS -> String.valueOf((seconds / 3600) % 24);
+          case DAYS -> String.valueOf(seconds / 86400);
+          default -> String.valueOf(seconds);
+      };
   }
 
   /**
