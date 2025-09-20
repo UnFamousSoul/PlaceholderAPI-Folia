@@ -59,7 +59,6 @@ public final class PlaceholderAPIConfig {
         .getString("cloud_sorting", ExpansionSort.LATEST.name());
 
     try {
-      //noinspection ConstantConditions (bad spigot annotation)
       return Optional.of(ExpansionSort.valueOf(option.toUpperCase()));
     } catch (final IllegalArgumentException ignored) {
       return Optional.empty();
@@ -69,20 +68,17 @@ public final class PlaceholderAPIConfig {
 
   @NotNull
   public String dateFormat() {
-    //noinspection ConstantConditions (bad spigot annotation)
     return plugin.getConfig().getString("date_format", "MM/dd/yy HH:mm:ss");
   }
 
 
   @NotNull
   public String booleanTrue() {
-    //noinspection ConstantConditions (bad spigot annotation)
     return plugin.getConfig().getString("boolean.true", "true");
   }
 
   @NotNull
   public String booleanFalse() {
-    //noinspection ConstantConditions (bad spigot annotation)
     return plugin.getConfig().getString("boolean.false", "false");
   }
 

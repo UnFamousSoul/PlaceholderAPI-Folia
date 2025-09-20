@@ -34,7 +34,6 @@ import me.clip.placeholderapi.scheduler.UniversalScheduler;
 import me.clip.placeholderapi.scheduler.scheduling.schedulers.TaskScheduler;
 import me.clip.placeholderapi.updatechecker.UpdateChecker;
 import me.clip.placeholderapi.util.Msg;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
 import org.bstats.charts.SimplePie;
@@ -89,8 +88,6 @@ public final class PlaceholderAPIPlugin extends JavaPlugin {
   private final CloudExpansionManager cloudExpansionManager = new CloudExpansionManager(this);
   @NotNull
   private final TaskScheduler scheduler = UniversalScheduler.getScheduler(this);
-
-  private BukkitAudiences adventure;
 
 
   /**
@@ -160,8 +157,6 @@ public final class PlaceholderAPIPlugin extends JavaPlugin {
     setupMetrics();
     setupExpansions();
 
-    adventure = BukkitAudiences.create(this);
-
     if (config.isCloudEnabled()) {
       getCloudExpansionManager().load();
     }
@@ -179,10 +174,6 @@ public final class PlaceholderAPIPlugin extends JavaPlugin {
     HandlerList.unregisterAll(this);
 
     scheduler.cancelTasks(this);
-
-    adventure.close();
-    adventure = null;
-
     instance = null;
   }
 
@@ -208,15 +199,6 @@ public final class PlaceholderAPIPlugin extends JavaPlugin {
   @NotNull
   public CloudExpansionManager getCloudExpansionManager() {
     return cloudExpansionManager;
-  }
-
-  @NotNull
-  public BukkitAudiences getAdventure() {
-    if(adventure == null) {
-      throw new IllegalStateException("Tried to access Adventure when the plugin was disabled!");
-    }
-
-    return adventure;
   }
 
   @NotNull

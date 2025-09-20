@@ -34,12 +34,12 @@ body:
       
       - `Plugin Bug`: PlaceholderAPI doesn't startup properly.
       - `API Bug`: A method you use didn't work or has an unexpected result.
-      - `Plugin/Server Incompatability`: PlaceholderAPI either doesn't support a specific Server Type/Version or has conflicts with another plugin.
+      - `Plugin/Server Incompatibility`: PlaceholderAPI either doesn't support a specific Server Type/Version or has conflicts with another plugin.
     multiple: false
     options:
       - "Plugin Bug"
       - "API Bug"
-      - "Plugin/Server Incompatability"
+      - "Plugin/Server Incompatibility"
   validations:
     required: true
 - type: textarea
@@ -97,7 +97,7 @@ body:
   attributes:
     label: "Additional Info"
     description: |-
-      Add any extra info you think is nessesary for this Bug report.
+      Add any extra info you think is necessary for this Bug report.
       - If you selected `API Bug` will you need to include code-examples here to reproduce the issue.
-      - If you selected `Plugin/Server Incompatability` should you include extra Server info such as a Timings or Spark-Report or info about the plugin in question.
+      - If you selected `Plugin/Server Incompatibility` should you include extra Server info such as a Timings or Spark-Report or info about the plugin in question.
     placeholder: "Put any extra info you like into this field..."

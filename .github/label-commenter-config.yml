@@ -119,7 +119,7 @@ labels:
     labeled:
       issue:
         body: |-
-          The issue has been marked as **inactive** which means it didn't recieve any responses from the Author ({{ issue.user.login }}) for a long period of time.
+          The issue has been marked as **inactive** which means it didn't receive any responses from the Author ({{ issue.user.login }}) for a long period of time.
           To keep the issue-tracker clean and up to date do we close issues that haven't received any responses for a long time.
           
           If you're the Author of this issue and the reported problem is still present, make sure to respond with additional info to this issue, so that we can reopen it.

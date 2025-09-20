@@ -34,7 +34,7 @@ Opening a separate issue for a bug report or feature request, that already exist
 If an issue with the bug or feature you want to report/suggest exists, comment on it with your info (bug reports) or give it a :thumbsup: (Feature Request) to show that this is important for you.
 
 ### Issue isn't caused by external source
-PlaceholderAPI provides a feature to have expansions (separate jar files) for placeholders. This gives it a possability that an issue you encounter is caused by said expansions or a separate plugin that uses those expansions.  
+PlaceholderAPI provides a feature to have expansions (separate jar files) for placeholders. This gives it a possibility that an issue you encounter is caused by said expansions or a separate plugin that uses those expansions.  
 In those cases should you report the issue to the issue tracker of the expansion or plugin.
 
 ## Pull requests

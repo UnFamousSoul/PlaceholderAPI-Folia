@@ -22,11 +22,9 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
+@Suppress("VulnerableLibrariesLocal")
 dependencies {
     implementation("org.bstats:bstats-bukkit:3.0.1")
-    implementation("net.kyori:adventure-platform-bukkit:4.3.3")
-
-    @Suppress("VulnerableLibrariesLocal")
     compileOnly("dev.folia:folia-api:1.21.8-R0.1-SNAPSHOT")
     compileOnlyApi("org.jetbrains:annotations:23.0.0")
 
@@ -78,7 +76,6 @@ tasks {
         archiveClassifier.set("")
 
         relocate("org.bstats", "me.clip.placeholderapi.metrics")
-        relocate("net.kyori", "me.clip.placeholderapi.libs.kyori")
 
         exclude("META-INF/versions/**")
     }

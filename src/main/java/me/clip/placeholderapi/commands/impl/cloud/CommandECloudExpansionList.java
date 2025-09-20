@@ -322,7 +322,7 @@ public final class CommandECloudExpansionList extends PlaceholderCommand {
     final int limit = (int) Math.ceil((double) expansions.size() / PAGE_SIZE);
 
     final Component message = getMessage(values, page, limit, params.get(0));
-    plugin.getAdventure().player((Player) sender).sendMessage(message);
+    sender.sendMessage(message);
   }
 
   @Override

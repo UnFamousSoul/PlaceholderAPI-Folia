@@ -36,7 +36,6 @@ public class TimeUtil {
           case MINUTES -> String.valueOf((seconds / 60) % 60);
           case HOURS -> String.valueOf((seconds / 3600) % 24);
           case DAYS -> String.valueOf(seconds / 86400);
-          default -> String.valueOf(seconds);
       };
   }
 
